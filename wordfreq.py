@@ -18,7 +18,7 @@ def main() -> None:
     parser.add_argument("path", help="text file to read")
     parser.add_argument("--top", type=int, default=10, help="how many words to print")
     args = parser.parse_args()
-    with open(args.path, encoding="utf-8") as f:
+    with open(args.path, encoding="utf-8", errors="replace") as f:
         text = f.read()
     for word, count in top_words(text, args.top):
         print(f"{count:6} {word}")
